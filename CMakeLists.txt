@@ -4,6 +4,11 @@ project(TheStdandardLib
     LANGUAGES C
 )
 
+# FIXME: gcc 4.8.5 CentOS-7.7 do not support C11 stdatomic.h
+if(NOT CMAKE_C_STANDARD)
+    set(CMAKE_C_STANDARD 11)
+endif()
+
 option(TARGET_X86_64
     "Default target device is set to x86_64"
     "ON"
